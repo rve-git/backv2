@@ -1,0 +1,31 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "bookshelf",
+      "settings": {
+        "client": "mysql",
+        "database": "mymexico",
+        "host": "31.14.142.206",
+        "port": 3306,
+        "username": "articler",
+        "password": "pass",
+        "charset": "utf8mb4"
+      },
+      "options": {
+        "debug": false,
+        "acquireConnectionTimeout": 100000,
+        "pool": {
+          "min": 0,
+          "max": 50,
+          "createTimeoutMillis": 30000,
+          "acquireTimeoutMillis": 600000,
+          "idleTimeoutMillis": 20000,
+          "reapIntervalMillis": 20000,
+          "createRetryIntervalMillis": 200
+        },
+        "charset": "utf8mb4"
+      }
+    }
+  }
+}
