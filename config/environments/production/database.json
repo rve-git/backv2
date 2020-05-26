@@ -9,9 +9,23 @@
         "port": "${process.env.DATABASE_PORT || 27017}",
         "database": "${process.env.DATABASE_NAME || 'strapi'}",
         "username": "${process.env.DATABASE_USERNAME || ''}",
-        "password": "${process.env.DATABASE_PASSWORD || ''}"
+        "password": "${process.env.DATABASE_PASSWORD || ''}",
+        "charset": "utf8mb4"
       },
-      "options": {}
+      "options": {
+        "debug": false,
+        "acquireConnectionTimeout": 100000,
+        "pool": {
+          "min": 0,
+          "max": 50,
+          "createTimeoutMillis": 30000,
+          "acquireTimeoutMillis": 600000,
+          "idleTimeoutMillis": 20000,
+          "reapIntervalMillis": 20000,
+          "createRetryIntervalMillis": 200
+        },
+        "charset": "utf8mb4"
+      }
     }
   }
 }
