@@ -5,11 +5,11 @@
       "connector": "bookshelf",
       "settings": {
         "client": "mysql",
-        "host": "${process.env.DATABASE_HOST || '127.0.0.1'}",
-        "port": "${process.env.DATABASE_PORT || 27017}",
-        "database": "${process.env.DATABASE_NAME || 'strapi'}",
-        "username": "${process.env.DATABASE_USERNAME || ''}",
-        "password": "${process.env.DATABASE_PASSWORD || ''}",
+        "host": "31.14.142.206",
+        "port": "3306",
+        "database": "mymexico",
+        "username": "articler",
+        "password": "CT99FZxxmBMEYzUuCHKXJe3j",
         "charset": "utf8mb4"
       },
       "options": {
