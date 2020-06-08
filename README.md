@@ -1,3 +1,15 @@
-# Strapi application
+# How to use
 
-A quick description of your strapi application
+## Development
+
+### Requirements
+
+You should have docker and docker-compose installed on your PC
+
+### Run
+
+Run the following command to start daemon
+
+```bash
+docker-compose up --build
+```  
