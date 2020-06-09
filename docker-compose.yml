@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+  quarasique-strapi:
+    environment:
+      - DATABASE_CLIENT=mysql
+      - DATABASE_HOST=quarasique-db
+      - DATABASE_PORT=3306
+      - DATABASE_NAME=database
+      - DATABASE_USERNAME=user
+      - DATABASE_PASSWORD=pass
+    container_name: quarasique-strapi
+    working_dir: /app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - quarasique-db
+    user: "node"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "127.0.0.1:1337:1337"
+    restart: always
+    command: npm run develop
+
+  quarasique-db:
+     container_name: quarasique-db
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     ports:
+       - "127.0.0.1:1480:3306"
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: database
+       MYSQL_USER: user
+       MYSQL_PASSWORD: pass
+     command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  db_data:

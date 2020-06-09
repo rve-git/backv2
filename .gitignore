@@ -110,4 +110,4 @@ coverage
 exports
 .cache
 build
-ecosystem.config.js
+.env
