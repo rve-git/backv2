@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.7'
 
 services:
   quarasique-strapi:
@@ -23,6 +23,8 @@ services:
     ports:
       - "127.0.0.1:1337:1337"
     restart: always
+    networks:
+      - quarasique-net
     command: npm run develop
 
   quarasique-db:
@@ -38,7 +40,14 @@ services:
        MYSQL_DATABASE: database
        MYSQL_USER: user
        MYSQL_PASSWORD: pass
+     networks:
+       - quarasique-net
      command: --default-authentication-plugin=mysql_native_password
 
 volumes:
   db_data:
+
+networks:
+  quarasique-net:
+    name: quarasique-net
+    driver: bridge
